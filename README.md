@@ -1,2 +1,0 @@
-# TRASH
-Trash

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- Pour lancer l’application en plein écran sur mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Envoyer Fake USDT</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    form {
+      width: 100%;
+      max-width: 400px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+    }
+    input, select {
+      background-color: #222;
+      color: #fff;
+    }
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Envoyer Fake USDT sur Testnet</h1>
+    <form action="send_usdt.php" method="post">
+      <label for="api_key">API Key (TronGrid ou autre API)</label>
+      <input type="text" id="api_key" name="api_key" placeholder="Saisissez votre API Key" required>
+      
+      <label for="recipient">Adresse du destinataire</label>
+      <input type="text" id="recipient" name="recipient" placeholder="Adresse Tron" required>
+      
+      <label for="amount">Montant (Fake USDT)</label>
+      <input type="number" id="amount" name="amount" placeholder="Montant" required>
+      
+      <label for="network">Réseau</label>
+      <select id="network" name="network" required>
+        <option value="shasta">Shasta (Testnet)</option>
+        <option value="monad">Monad (Testnet)</option>
+      </select>
+      
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</body>
+</html>
