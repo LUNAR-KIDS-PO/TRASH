@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASH USDT TOOL - DEMO V1</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        input, select, button {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: cyan;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: lime;
+            transform: scale(1.1);
+        }
+
+        .faucet-list {
+            margin-top: 20px;
+        }
+
+        .faucet-list button {
+            width: 90%;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .author {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.3));
+            z-index: 1;
+            filter: blur(8px);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Overlay visuel -->
+    <div class="overlay"></div>
+
+    <div class="container">
+        <h1 id="title">FLASH USDT TOOL - TESTNET FAUCETS</h1>
+
+        <h3>💰 Select a Testnet Faucet:</h3>
+
+        <div class="faucet-list">
+            <button onclick="goToFaucet('TRC20')">TRC20 Testnet Faucet (TRON)</button>
+            <button onclick="goToFaucet('rinkeby')">Rinkeby Testnet Faucet (Ethereum)</button>
+            <button onclick="goToFaucet('bsc')">BSC Testnet Faucet</button>
+            <button onclick="goToFaucet('polygon')">Polygon Mumbai Faucet</button>
+            <button onclick="goToFaucet('solana')">Solana Devnet Faucet</button>
+            <button onclick="goToFaucet('avax')">Avalanche Fuji Faucet</button>
+            <button onclick="goToFaucet('cardano')">Cardano Testnet Faucet</button>
+            <button onclick="goToFaucet('heco')">HECO Testnet Faucet</button>
+            <button onclick="goToFaucet('fantom')">Fantom Testnet Faucet</button>
+            <button onclick="goToFaucet('terra')">Terra Testnet Faucet</button>
+            <button onclick="goToFaucet('cosmos')">Cosmos Testnet Faucet</button>
+            <button onclick="goToFaucet('near')">NEAR Testnet Faucet</button>
+            <button onclick="goToFaucet('kusama')">Kusama Testnet Faucet</button>
+            <button onclick="goToFaucet('polkadot')">Polkadot Testnet Faucet</button>
+            <button onclick="goToFaucet('solanaTest')">Solana Mainnet Faucet</button>
+            <button onclick="goToFaucet('polygonTest')">Polygon Mainnet Faucet</button>
+            <button onclick="goToFaucet('ethTest')">Ethereum Mainnet Faucet</button>
+            <button onclick="goToFaucet('bscTest')">Binance Smart Chain Faucet</button>
+            <button onclick="goToFaucet('tronTest')">TRON Mainnet Faucet</button>
+            <button onclick="goToFaucet('avaxTest')">Avalanche Mainnet Faucet</
+
+            <button onclick="goToFaucet('avaxTest')">Avalanche Mainnet Faucet</button>
+            <button onclick="goToFaucet('cardanoTest')">Cardano Mainnet Faucet</button>
+            <button onclick="goToFaucet('hecoTest')">HECO Mainnet Faucet</button>
+            <button onclick="goToFaucet('fantomTest')">Fantom Mainnet Faucet</button>
+            <button onclick="goToFaucet('terraTest')">Terra Mainnet Faucet</button>
+            <button onclick="goToFaucet('cosmosTest')">Cosmos Mainnet Faucet</button>
+            <button onclick="goToFaucet('nearTest')">NEAR Mainnet Faucet</button>
+            <button onclick="goToFaucet('kusamaTest')">Kusama Mainnet Faucet</button>
+            <button onclick="goToFaucet('polkadotTest')">Polkadot Mainnet Faucet</button>
+            <button onclick="goToFaucet('shiden')">Shiden Testnet Faucet</button>
+            <button onclick="goToFaucet('moonbeam')">Moonbeam Testnet Faucet</button>
+            <button onclick="goToFaucet('moonsama')">MoonSama Testnet Faucet</button>
+            <button onclick="goToFaucet('elrond')">Elrond Testnet Faucet</button>
+            <button onclick="goToFaucet('celo')">Celo Testnet Faucet</button>
+            <button onclick="goToFaucet('clover')">Clover Testnet Faucet</button>
+            <button onclick="goToFaucet('neon')">Neon Testnet Faucet</button>
+            <button onclick="goToFaucet('xdc')">XDC Testnet Faucet</button>
+            <button onclick="goToFaucet('chiliz')">Chiliz Testnet Faucet</button>
+            <button onclick="goToFaucet('dash')">Dash Testnet Faucet</button>
+            <button onclick="goToFaucet('zcash')">Zcash Testnet Faucet</button>
+            <button onclick="goToFaucet('blockchain')">Blockchain Testnet Faucet</button>
+            <button onclick="goToFaucet('hedera')">Hedera Testnet Faucet</button>
+            <button onclick="goToFaucet('ripple')">Ripple Testnet Faucet</button>
+            <button onclick="goToFaucet('stellar')">Stellar Testnet Faucet</button>
+            <button onclick="goToFaucet('rsk')">RSK Testnet Faucet</button>
+            <button onclick="goToFaucet('groestl')">Groestl Testnet Faucet</button>
+            <button onclick="goToFaucet('bsv')">BSV Testnet Faucet</button>
+            <button onclick="goToFaucet('litecoin')">Litecoin Testnet Faucet</button>
+            <button onclick="goToFaucet('dogecoin')">Dogecoin Testnet Faucet</button>
+            <button onclick="goToFaucet('neo')">NEO Testnet Faucet</button>
+            <button onclick="goToFaucet('nervos')">Nervos Testnet Faucet</button>
+            <button onclick="goToFaucet('ont')">Ontology Testnet Faucet</button>
+            <button onclick="goToFaucet('dgb')">DigiByte Testnet Faucet</button>
+            <button onclick="goToFaucet('xmr')">Monero Testnet Faucet</button>
+            <button onclick="goToFaucet('verus')">Verus Testnet Faucet</button>
+            <button onclick="goToFaucet('vertcoin')">Vertcoin Testnet Faucet</button>
+            <button onclick="goToFaucet('gallactic')">Galactic Testnet Faucet</button>
+            <button onclick="goToFaucet('bsvMain')">BSV Mainnet Faucet</button>
+            <button onclick="goToFaucet('litecoinMain')">Litecoin Mainnet Faucet</button>
+            <button onclick="goToFaucet('dogecoinMain')">Dogecoin Mainnet Faucet</button>
+            <button onclick="goToFaucet('neoMain')">NEO Mainnet Faucet</button>
+            <button onclick="goToFaucet('nervosMain')">Nervos Mainnet Faucet</button>
+            <button onclick="goToFaucet('ontMain')">Ontology Mainnet Faucet</button>
+            <button onclick="goToFaucet('dgbMain')">DigiByte Mainnet Faucet</button>
+            <button onclick="goToFaucet('xmrMain')">Monero Mainnet Faucet</button>
+            <button onclick="goToFaucet('verusMain')">Verus Mainnet Faucet</button>
+            <button onclick="goToFaucet('vertcoinMain')">Vertcoin Mainnet Faucet</button>
+            <button onclick="goToFaucet('groestlMain')">Groestl Mainnet Faucet</button>
+            <button onclick="goToFaucet('blockchainMain')">Blockchain Mainnet Faucet</button>
+            <button onclick="goToFaucet('hederaMain')">Hedera Mainnet Faucet</button>
+            <button onclick="goToFaucet('rippleMain')">Ripple Mainnet Faucet</button>
+            <button onclick="goToFaucet('stellarMain')">Stellar Mainnet Faucet</button>
+            <button onclick="goToFaucet('rskMain')">RSK Mainnet Faucet</button>
+            <button onclick="goToFaucet('solanaSolTest')">Solana Testnet Faucet</button>
+            <button onclick="goToFaucet('ethMainTest')">Ethereum Main Testnet Faucet</button>
+        </div>
+
+        <p class="author">BY <a href="https://t.me/ivglitchedl" target="_blank">@ivglitchedl</a> on Telegram</p>
+    </div>
+
+    <script>
+        function goToFaucet(faucetType) {
+            let faucetUrls = {
+                TRC20: "https://www.justswap.org/",
+                rinkeby: "https://faucet.rinkeby.io/",
+                bsc: "https://testnet.binance.org/faucet-smart",
+                polygon: "https://faucet.polygon.technology/",
+                solana: "https://solfaucet.com",
+                avax: "https://faucet.avax.network/",
+                cardano: "https://testnets.cardano.org/en/testnets/",
+                heco: "https://testnet.hecochain.com/",
+                fantom: "https://faucet.fantom.network/",
+                terra: "https://faucet.terra.dev/",
+                cosmos: "https://cosmosfaucet.hellorabbit.io/",
+                near: "https://wallet.testnet.near.org/faucet",
+                kusama: "https://faucet.kusama.network/",
+                polkadot: "https://polkadot.js.org/apps/#/faucet",
+                solanaTest: "https://solfaucet.com",
+                polygonTest: "https://faucet.polygon.technology/",
+                ethTest: "https://goerli-faucet.slock.it/",
+                bscTest: "https://testnet.binance.org/faucet-smart",
+                tronTest: "https://www.tronlink.org/",
+                avaxTest: "https://faucet.avax.network/",
+                cardanoTest: "https://testnets.cardano.org/en/testnets/",
+                hecoTest: "https://testnet.hecochain.com/",
+                fantomTest: "https://faucet.fantom.network/",
+                terraTest: "https://faucet.terra.dev/",
+                cosmosTest: "https://cosmosfaucet.hellorabbit.io/",
+                neon: "https://neonlabs.org/faucet",
+                xdc: "https://xdc.org/faucet",
+                chiliz: "https://faucet.chiliz.com/",
+                dash: "https://testnet.dash.org/",
+                zcash: "https://testnet.z.cash/",
+                blockchain: "https://testnet.blockchain.org/",
+                hedera: "https://www.hedera.com/faucet",
+                ripple: "https://faucet.ripple.com/",
+                stellar: "https://testnet.stellar.org/",
+                rsk: "https://www.rsk.co/",
+                groestl: "https://groestl.org/faucet/",
+                bsv: "https://faucet.bsv.org/",
+                litecoin: "https://testnet.litecoin.org/",
+                dogecoin: "https://testnet.dogecoin.com/",
+                neo: "https://testnet.neo.org/",
+                nervos: "https://faucet.nervos.org/",
+                ont: "https://www.ont.io/",
+                dgb: "https://testnet.digibyte.org/",
+                xmr: "https://testnet.monero.org/",
+                verus: "https://testnet.veruscoin.org/",
+                vertcoin: "https://vertcoin.org/",
+                galactic: "https://testnet.galactic.org/",
+            };
+
+            if (faucetUrls[faucetType]) {
+                window.open(faucetUrls[faucetType], "_blank");
+            } else {
+                alert("Faucet URL not found.");
+            }
+        }
+    </script>
+
+</body>
+</html>
